@@ -54,8 +54,8 @@ describe('redeemReward', () => {
             availableAt: "2023-05-19T00:00:00Z",
             redeemedAt: null,
             expiredAt: jasmine.any(String)
-        }
-        expect(() => redeemReward(mockReward)).toThrow(jasmine.any(String))
+        };
+        expect(() => redeemReward(mockReward)).toThrow(jasmine.any(String));
     });
 
     it('should fail when requesting too late', () => {
@@ -63,8 +63,8 @@ describe('redeemReward', () => {
             availableAt: "2021-05-19T00:00:00Z",
             redeemedAt: null,
             expiredAt: "2021-05-20T00:00:00Z"
-        }
-        expect(() => redeemReward(mockReward)).toThrow(jasmine.any(String))
+        };
+        expect(() => redeemReward(mockReward)).toThrow(jasmine.any(String));
     });
 
     it('should return the reward object on success', () => {
@@ -72,9 +72,9 @@ describe('redeemReward', () => {
             availableAt: "2022-05-19T00:00:00Z",
             redeemedAt: null,
             expiredAt: "2022-05-20T00:00:00Z"
-        }
+        };
         const expectedReward = {...mockReward, redeemedAt: getISO8601DateString(new Date())};
-        redeemReward(mockReward)
-        expect(mockReward).toEqual(expectedReward)
+        redeemReward(mockReward);
+        expect(mockReward).toEqual(expectedReward);
     });
 });
